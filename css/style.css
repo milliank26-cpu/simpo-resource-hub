@@ -1,0 +1,450 @@
+/* ==========================================================================
+   SIMPO HUB FUTURISTIC SAAS STYLESHEET
+   Theme: Galactic Dark, Electric Blue Accents, Ultra-Clean Layouts
+   ========================================================================== */
+
+:root {
+  --bg-dark: #070a13;
+  --bg-card: rgba(16, 23, 42, 0.65);
+  --border-glow: rgba(0, 102, 255, 0.15);
+  --border-hover: rgba(0, 102, 255, 0.4);
+  --accent-blue: #0066ff;
+  --accent-glow: #3385ff;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --success-green: #10b981;
+  --error-red: #ef4444;
+}
+
+/* Global resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(0, 102, 255, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 102, 255, 0.05) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  padding-bottom: 60px;
+}
+
+/* Header Navbar Branding Styles */
+.navbar {
+  background: rgba(7, 10, 19, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glow);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-accent {
+  color: var(--accent-blue);
+  text-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+}
+
+.nav-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Layout Wrapper Layouts */
+.main-wrapper {
+  max-width: 1300px;
+  margin: 40px auto 0 auto;
+  padding: 0 24px;
+}
+
+/* Strategic SEO Hero Presentation Title Elements */
+.hero-section {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fff 30%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Main Dashboard Column Balancing Rules */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 4.5fr 7.5fr;
+  }
+}
+
+/* Translucent SaaS Component Panel Elements */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 28px;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(0, 102, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.04);
+}
+
+.card-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+}
+
+.card-icon {
+  font-size: 24px;
+  background: rgba(0, 102, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-lead {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Input Forms and Dropdowns Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(7, 10, 19, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  background: rgba(7, 10, 19, 0.8);
+}
+
+/* Premium Upload Button State Elements */
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 24px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 102, 255, 0.03);
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.file-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.file-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Submit Action Button UI Details */
+button[type="submit"] {
+  width: 100%;
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.25);
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 102, 255, 0.35);
+}
+
+button[type="submit"]:disabled {
+  background: #1e293b;
+  color: #64748b;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* App System Status Indicators */
+.status {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status:empty {
+  display: none;
+}
+.status.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.status.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-red);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Loading Placeholder Dynamic Visual States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   DYNAMIC COMPONENT RE-INJECTION RENDERS (Targets items mapped by browse.js)
+   ========================================================================== */
+#resourceContainer {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.resource-item {
+  background: rgba(7, 10, 19, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 576px) {
+  .resource-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.resource-item:hover {
+  border-color: var(--border-hover);
+  background: rgba(0, 102, 255, 0.02);
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.category-badge {
+  background: rgba(0, 102, 255, 0.12);
+  color: #4da6ff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+.resource-desc {
+  font-size: 13.5px;
+  color: #cbd5e1;
+}
+
+/* Download Direct Button Layout UI Elements */
+.download-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+.download-btn:hover {
+  background: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Sticky App Footer Branding Layout rules */
+.app-footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  margin-top: 80px;
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO Optimization Meta Tags -->
+    <meta
+      name="description"
+      content="Access free Ugandan educational materials, UNEB past papers, UACE revision guides, and university reference resources on Simpo Resource Hub."
+    />
+    <meta
+      name="keywords"
+      content="Simpo Resource Hub, UNEB papers, UACE economics guide, Uganda school materials, Kampala student downloads, free library Uganda"
+    />
+    <title>
+      Simpo Resource Hub | Free Ugandan Educational Resources & UNEB Materials
+    </title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Futuristic SaaS Navigation Header Element -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="logo-icon">⚡</span> Simpo<span class="logo-accent"
+            >Hub</span
+          >
+        </div>
+        <div class="nav-badge">🇺🇬 Uganda's Academic Decentralized Library</div>
+      </div>
+    </header>
+
+    <main class="main-wrapper">
+      <!-- Hero Introduction Section with Strategic Local SEO Keywords -->
+      <section class="hero-section">
+        <h1 class="hero-title">
+          Empowering Ugandan Learners,
+          <span class="gradient-text">Simplified.</span>
+        </h1>
+        <p class="hero-subtitle">
+          The absolute fastest way for Ugandan high school and university
+          students to access high-quality reference materials, UNEB revision
+          frameworks, agriculture modules, and professional templates.
+        </p>
+      </section>
+
+      <!-- TWO COLUMN INTERFACE GRID -->
+      <div class="dashboard-grid">
+        <!-- LEFT PANEL: CONTRIBUTE COMPONENT -->
+        <section class="panel-section">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon upload-icon">🚀</div>
+              <div>
+                <h2>Contribute Materials</h2>
+                <p class="card-lead">
+                  Upload academic guides, course works, or syllabus breakdowns.
+                </p>
+              </div>
+            </div>
+
+            <form id="uploadForm">
+              <div class="form-group">
+                <label for="title">Resource Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  required
+                  placeholder="e.g., UACE Economics Paper 1 Revision Guide"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="category">Academic Domain / Category</label>
+                <select id="category" required>
+                  <option value="">Select domain allocation...</option>
+                  <option value="Education">
+                    Education (UNEB, UCE, UACE, University)
+                  </option>
+                  <option value="Agriculture">
+                    Agriculture & Extension Material
+                  </option>
+                  <option value="Business">Business / Startup Templates</option>
+                  <option value="Legal">Legal frameworks / Policies</option>
+                  <option value="Other">Other Miscellaneous Resources</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="description"
+                  >Contextual Description (Optional)</label
+                >
+                <textarea
+                  id="description"
+                  rows="3"
+                  placeholder="Provide brief notes, target classes, or author source information..."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="fileInput" class="custom-file-upload">
+                  <span class="file-icon">📁</span>
+                  <span class="file-text"
+                    >Click to select file from device</span
+                  >
+                  <input type="file" id="fileInput" required />
+                </label>
+              </div>
+
+              <button type="submit" id="submitBtn">
+                Publish to Simpo Network
+              </button>
+            </form>
+            <div id="uploadStatus" class="status"></div>
+          </div>
+        </section>
+
+        <!-- RIGHT PANEL: CONTENT CATALOG COMPONENT -->
+        <section class="panel-section">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon browse-icon">🔍</div>
+              <div>
+                <h2>Instant Access Database</h2>
+                <p class="card-lead">
+                  Browse and download materials loaded directly by fellow
+                  educators and students.
+                </p>
+              </div>
+            </div>
+
+            <div id="loadingText" class="loading-state">
+              <div class="spinner"></div>
+              <span>Querying centralized database systems...</span>
+            </div>
+
+            <!-- Javascript populates items in this container -->
+            <div id="resourceContainer"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer to anchor local brand authoritativeness -->
+    <footer class="app-footer">
+      <p>
+        &copy; 2026 Simpo Resource Hub. Bridging digital resource distribution
+        divides across Uganda.
+      </p>
+    </footer>
+
+    <!-- App Engine Execution Layer Hooks -->
+    <script src="js/config.js"></script>
+    <script src="js/browse.js"></script>
+    <script src="js/upload.js"></script>
+  </body>
+</html>
