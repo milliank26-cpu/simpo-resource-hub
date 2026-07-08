@@ -1,0 +1,3 @@
+const SUPABASE_URL = "https://itkpmktqogylqtsexwol.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0a3Bta3Rxb2d5bHF0c2V4d29sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNzQ0NjIsImV4cCI6MjA5ODg1MDQ2Mn0.UVEboJR8FjEF6ABLIjVnj-B_Edn9F_wPxqlWABrCMAI";
