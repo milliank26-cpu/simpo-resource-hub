@@ -39,15 +39,18 @@ async function loadResources() {
       itemDiv.className = "resource-item";
 
       itemDiv.innerHTML = `
-                <div class="resource-info">
-                    <h3 class="resource-title">${item.title}</h3>
-                    <div class="resource-meta">
-                        <span class="category-badge">${item.category}</span>
-                        <span>• ${formatBytes(item.file_size)}</span>
-                    </div>
-                    <p class="resource-desc">${item.description || "No description provided."}</p>
+               <div class="resource-info">
+                <h3 class="resource-title">${item.title}</h3>
+                <div class="resource-meta" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
+                    <span class="category-badge">${item.category}</span>
+                    <!-- NEW FIELDS DISPLAYING BELOW -->
+                    <span style="background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-size: 12px;">🎓 ${item.level || "N/A"}</span>
+                    <span style="background: #f3f4f6; color: #374151; padding: 2px 6px; border-radius: 4px; font-size: 12px;">✍️ ${item.author || "Unknown"}</span>
+                    <span>• ${formatBytes(item.file_size)}</span>
                 </div>
-                <a href="${item.file_url}" target="_blank" download="${item.title}" class="download-btn">📥 Download</a>
+                <p class="resource-desc">${item.description || "No description provided."}</p>
+            </div>
+            <a href="${item.file_url}" target="_blank" download="${item.title}" class="download-btn">📥 Download</a>
             `;
       container.appendChild(itemDiv);
     });
