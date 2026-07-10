@@ -71,19 +71,63 @@
               </div>
 
               <div class="form-group">
-                <label for="category">Academic Domain / Category</label>
+                <label for="category">Subject</label>
                 <select id="category" required>
-                  <option value="">Select domain allocation...</option>
-                  <option value="Education">
-                    Education (UNEB, UCE, UACE, University)
-                  </option>
-                  <option value="Agriculture">
-                    Agriculture & Extension Material
-                  </option>
-                  <option value="Business">Business / Startup Templates</option>
-                  <option value="Legal">Legal frameworks / Policies</option>
-                  <option value="Other">Other Miscellaneous Resources</option>
+                  <option value="">Select subject...</option>
+                  <option value="History">History</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Economics">Economics</option>
+                  <option value="Sub ICT">Sub ICT</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Geography">Geography</option>
+                  <option value="Art and Design">Art and Design</option>
                 </select>
+              </div>
+              <!-- Academic Level Selector -->
+              <div class="form-group">
+                <label for="level">Academic Level</label>
+                <select id="level" name="level" required>
+                  <option value="">Select academic level...</option>
+                  <option value="O-Level">O-Level</option>
+                  <option value="S.1">S.1</option>
+                  <option value="S.2">S.2</option>
+                  <option value="S.3">S.3</option>
+                  <option value="S.4">S.4</option>
+                  <option value="A-Level">A-Level</option>
+                  <option value="S.5">S.5</option>
+                  <option value="S.6">S.6</option>
+                </select>
+              </div>
+
+              <!-- New Author Input -->
+              <div class="form-group">
+                <label for="author"
+                  >Author(s) / Contributor(s)
+                  <span class="optional">(Optional)</span></label
+                >
+                <input
+                  type="text"
+                  id="author"
+                  name="author"
+                  placeholder="e.g., Millian K"
+                />
+              </div>
+
+              <!-- New DOI Input -->
+              <div class="form-group">
+                <label for="doi"
+                  >Digital Object Identifier (DOI)
+                  <span class="optional">(Optional)</span></label
+                >
+                <input
+                  type="text"
+                  id="doi"
+                  name="doi"
+                  placeholder="e.g., 10.1000/xyz123"
+                />
               </div>
 
               <div class="form-group">
@@ -100,15 +144,27 @@
               <div class="form-group">
                 <label for="fileInput" class="custom-file-upload">
                   <span class="file-icon">📁</span>
-                  <span class="file-text"
+                  <span class="file-text" id="fileTextPrompt"
                     >Click to select file from device</span
                   >
                   <input type="file" id="fileInput" required />
                 </label>
+
+                <!-- NEW: This text block will display the active filename -->
+                <p
+                  id="chosenFileName"
+                  style="
+                    margin-top: 8px;
+                    font-size: 14px;
+                    color: #047857;
+                    font-weight: 500;
+                    display: none;
+                  "
+                ></p>
               </div>
 
               <button type="submit" id="submitBtn">
-                Publish to Simpo Network
+                Share on Simpo Network
               </button>
             </form>
             <div id="uploadStatus" class="status"></div>
@@ -121,7 +177,7 @@
             <div class="card-header">
               <div class="card-icon browse-icon">🔍</div>
               <div>
-                <h2>Instant Access Database</h2>
+                <h2>Explore the Academic Library</h2>
                 <p class="card-lead">
                   Browse and download materials loaded directly by fellow
                   educators and students.
@@ -131,7 +187,7 @@
 
             <div id="loadingText" class="loading-state">
               <div class="spinner"></div>
-              <span>Querying centralized database systems...</span>
+              <span>Accessing centralized academic resources...</span>
             </div>
 
             <!-- Javascript populates items in this container -->

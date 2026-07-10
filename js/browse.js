@@ -9,6 +9,7 @@ function formatBytes(bytes) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
 }
+// Replace just your renderUI function in browse.js with this one:
 function renderUI() {
   const container = document.getElementById("resourceContainer");
   container.innerHTML = "";
@@ -23,6 +24,11 @@ function renderUI() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "resource-item";
 
+    // Helper: Only generate a HTML snippet for DOI if it exists in the database record
+    const doiBadge = item.doi
+      ? `<span style="background: #eff6ff; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-size: 12px;">🔗 DOI: <a href="https://doi.org{item.doi}" target="_blank" style="color: inherit; text-decoration: underline;">${item.doi}</a></span>`
+      : "";
+
     itemDiv.innerHTML = `
         <div class="resource-info">
             <h3 class="resource-title">${item.title}</h3>
@@ -30,6 +36,7 @@ function renderUI() {
                 <span class="category-badge">${item.category}</span>
                 <span style="background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-size: 12px;">🎓 ${item.level || "N/A"}</span>
                 <span style="background: #f3f4f6; color: #374151; padding: 2px 6px; border-radius: 4px; font-size: 12px;">✍️ ${item.author || "Unknown"}</span>
+                ${doiBadge}
                 <span>• ${formatBytes(item.file_size)}</span>
             </div>
             <p class="resource-desc">${item.description || "No description provided."}</p>
