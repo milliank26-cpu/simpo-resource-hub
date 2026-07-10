@@ -3,21 +3,61 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
 
   const submitBtn = document.getElementById("submitBtn");
   const statusDiv = document.getElementById("uploadStatus");
-
   const title = document.getElementById("title").value;
   const category = document.getElementById("category").value;
   const description = document.getElementById("description").value;
   const fileInput = document.getElementById("fileInput");
   const file = fileInput.files[0];
 
-  if (!file) return;
+  // 1. Ensure a file was actually selected
+  if (!file) {
+    statusDiv.className = "status error";
+    statusDiv.innerText = "Please select a file to upload.";
+    return;
+  }
 
+  // ==========================================
+  // NEW: FILE VALIDATION CONFIGURATION
+  // ==========================================
+  const MAX_FILE_SIZE_MB = 15; // Set your limit (e.g., 15MB)
+  const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+  // Allowed academic file extensions
+  const ALLOWED_EXTENSIONS = [
+    "pdf",
+    "doc",
+    "docx",
+    "xls",
+    "xlsx",
+    "csv",
+    "txt",
+  ];
+
+  // Get the file extension of the selected file
+  const fileExtension = file.name.split(".").pop().toLowerCase();
+
+  // A. Validate File Size
+  if (file.size > MAX_FILE_SIZE_BYTES) {
+    statusDiv.className = "status error";
+    statusDiv.innerText = `❌ File is too large! Maximum allowed size is ${MAX_FILE_SIZE_MB}MB.`;
+    return; // Stops the upload immediately
+  }
+
+  // B. Validate File Type/Extension
+  if (!ALLOWED_EXTENSIONS.includes(fileExtension)) {
+    statusDiv.className = "status error";
+    statusDiv.innerText = `❌ Invalid file type! Allowed formats: ${ALLOWED_EXTENSIONS.join(", ").toUpperCase()}`;
+    return; // Stops the upload immediately
+  }
+  // ==========================================
+
+  // If validation passes, proceed with the upload
   submitBtn.disabled = true;
   statusDiv.className = "status";
   statusDiv.innerText = "Uploading file to storage...";
 
   try {
-    const fileExtension = file.name.split(".").pop();
+    // Generate a unique filename using the extension we already extracted
     const uniqueFileName = `${Date.now()}-${Math.random().toString(36).substring(2, 7)}.${fileExtension}`;
 
     // A. Upload physical file
@@ -68,7 +108,6 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
     statusDiv.innerText = "🎉 Resource uploaded successfully!";
     document.getElementById("uploadForm").reset();
 
-    // Instantly invoke the browser list module layout update loop
     if (typeof loadResources === "function") {
       loadResources();
     }
