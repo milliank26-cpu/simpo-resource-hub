@@ -47,6 +47,28 @@ body {
   padding-bottom: 60px;
 }
 
+/* WhatsApp floating pane*/
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25D366; /* Official WhatsApp Color */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Keeps it above all website content */
+  transition: transform 0.2s ease-in-out;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.1); /* Slight grow effect when hovered */
+}
+
+
 /* Header Navbar Branding Styles */
 .navbar {
   background: rgba(7, 10, 19, 0.75);
