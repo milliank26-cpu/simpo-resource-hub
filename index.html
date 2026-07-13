@@ -41,14 +41,88 @@
             >Hub</span
           >
         </div>
-        <div>
-          <nav class="nav-links">
-            <a href="about.html">About</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="t&cs.html">Terms & Conditions</a>
-            <a href="sign-up.html" class="btn-signup">Sign Up</a>
-          </nav>
-        </div>
+
+        <nav class="nav-links">
+          <!-- 1. HOME LINK -->
+          <a href="index.html" class="active">
+            <svg class="yt-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            <span class="nav-text">Home</span>
+          </a>
+
+          <!-- 2. UPLOAD LINK -->
+          <a href="#">
+            <svg
+              class="yt-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
+              />
+            </svg>
+            <span class="nav-text">Upload</span>
+          </a>
+
+          <!-- 3. ABOUT LINK -->
+          <a href="#">
+            <svg
+              class="yt-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span class="nav-text">About</span>
+          </a>
+
+          <!-- 4. PRIVACY POLICY LINK -->
+          <a href="#">
+            <svg
+              class="yt-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span class="nav-text">Privacy</span>
+          </a>
+
+          <!-- 5. SIGN UP ACTION BUTTON -->
+          <a href="#" class="btn-signup">
+            <svg
+              class="yt-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            <span class="nav-text">Sign Up</span>
+          </a>
+        </nav>
+
         <div class="nav-badge">🇺🇬 Uganda's Academic Decentralized Library</div>
       </div>
     </header>
@@ -233,12 +307,18 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="js/browse.js"></script>
     <script src="js/upload.js"></script>
-    <a href="https://chat.whatsapp.com/Li1YCEzHK1vBudyqkVBXuE?s=cl&p=a&ilr=4" class="whatsapp-fab" target="_blank" rel="noopener noreferrer">
-  <!-- Modern SVG WhatsApp Icon -->
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 11.966.01c3.182.001 6.176 1.242 8.426 3.496 2.25 2.254 3.489 5.251 3.489 8.444-.004 6.617-5.34 11.955-11.91 11.955a11.92 11.92 0 0 1-5.714-1.463L0 24zm6.59-3.52c1.72 1.022 3.523 1.562 5.373 1.563 5.485.002 9.948-4.463 9.951-9.953.001-2.659-1.033-5.159-2.91-7.04C17.185 3.169 14.693 2.13 12.04 2.13 6.554 2.13 2.09 6.594 2.087 12.08c-.001 1.887.491 3.73 1.426 5.362l-.965 3.524 3.606-.945zm11.366-4.635c-.3-.15-1.771-.875-2.042-.974-.271-.1-.468-.15-.665.15-.197.3-.765.974-.938 1.173-.173.199-.346.224-.646.074-.3-.15-1.264-.466-2.41-1.48-1.128-1.007-1.89-2.251-2.11-2.626-.222-.375-.024-.578.126-.727.135-.134.3-.35.45-.524.152-.174.202-.299.302-.499.102-.2.05-.375-.025-.524-.075-.15-.665-1.601-.91-2.19-.24-.577-.48-.499-.665-.509-.172-.008-.37-.01-.567-.01-.198 0-.518.074-.79.37-.271.299-1.035 1.012-1.035 2.47 0 1.457 1.06 2.865 1.208 3.064.149.199 2.087 3.189 5.056 4.47 1.233.531 2.192.848 2.94 1.086 1.239.393 2.368.338 3.26.205.993-.149 2.043-.834 2.333-1.644.29-.81.29-1.503.202-1.653-.088-.15-.324-.239-.624-.389z"/>
-  </svg>
-</a>
-
+    <a
+      href="https://chat.whatsapp.com/Li1YCEzHK1vBudyqkVBXuE?s=cl&p=a&ilr=4"
+      class="whatsapp-fab"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <!-- Modern SVG WhatsApp Icon -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 11.966.01c3.182.001 6.176 1.242 8.426 3.496 2.25 2.254 3.489 5.251 3.489 8.444-.004 6.617-5.34 11.955-11.91 11.955a11.92 11.92 0 0 1-5.714-1.463L0 24zm6.59-3.52c1.72 1.022 3.523 1.562 5.373 1.563 5.485.002 9.948-4.463 9.951-9.953.001-2.659-1.033-5.159-2.91-7.04C17.185 3.169 14.693 2.13 12.04 2.13 6.554 2.13 2.09 6.594 2.087 12.08c-.001 1.887.491 3.73 1.426 5.362l-.965 3.524 3.606-.945zm11.366-4.635c-.3-.15-1.771-.875-2.042-.974-.271-.1-.468-.15-.665.15-.197.3-.765.974-.938 1.173-.173.199-.346.224-.646.074-.3-.15-1.264-.466-2.41-1.48-1.128-1.007-1.89-2.251-2.11-2.626-.222-.375-.024-.578.126-.727.135-.134.3-.35.45-.524.152-.174.202-.299.302-.499.102-.2.05-.375-.025-.524-.075-.15-.665-1.601-.91-2.19-.24-.577-.48-.499-.665-.509-.172-.008-.37-.01-.567-.01-.198 0-.518.074-.79.37-.271.299-1.035 1.012-1.035 2.47 0 1.457 1.06 2.865 1.208 3.064.149.199 2.087 3.189 5.056 4.47 1.233.531 2.192.848 2.94 1.086 1.239.393 2.368.338 3.26.205.993-.149 2.043-.834 2.333-1.644.29-.81.29-1.503.202-1.653-.088-.15-.324-.239-.624-.389z"
+        />
+      </svg>
+    </a>
   </body>
 </html>

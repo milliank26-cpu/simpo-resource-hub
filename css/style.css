@@ -1,8 +1,3 @@
-/* ==========================================================================
-   SIMPO HUB FUTURISTIC SAAS STYLESHEET
-   Theme: Galactic Dark, Electric Blue Accents, Ultra-Clean Layouts
-   ========================================================================== */
-
 :root {
   --bg-dark: #070a13;
   --bg-card: rgba(16, 23, 42, 0.65);
@@ -52,7 +47,7 @@ body {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background-color: #25D366; /* Official WhatsApp Color */
+  background-color: #25d366; /* Official WhatsApp Color */
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -67,7 +62,6 @@ body {
 .whatsapp-fab:hover {
   transform: scale(1.1); /* Slight grow effect when hovered */
 }
-
 
 /* Header Navbar Branding Styles */
 .navbar {
@@ -111,6 +105,65 @@ body {
   font-size: 12px;
   font-weight: 600;
   color: var(--text-muted);
+}
+/* Navigation Links Container */
+/* ==========================================
+   DESKTOP DEFAULT INTERFACE RULES
+   ========================================== */
+
+/* Navigation Links Grid/Flex Layout for Desktop */
+.nav-links {
+  display: flex;
+  align-items: center;
+  /* Creates generous breathing space between each distinct menu item */
+  gap: 28px;
+  /* Allows the menu system to scale elegantly into its provided section */
+  justify-content: flex-end;
+}
+
+/* Base link architecture adjustment */
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 6px 4px;
+  position: relative;
+  transition:
+    color 0.25s ease-in-out,
+    text-shadow 0.25s ease-in-out;
+}
+
+/* Precise alignment for the minimalist vector icon shapes */
+.nav-links .yt-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  /* Adds space between the icon and its text companion so they don't mash */
+  margin-right: 8px;
+  flex-shrink: 0; /* Prevents the vector block from collapsing */
+  color: inherit;
+}
+
+/* Re-adjust position calculation for the futuristic bottom-line expander */
+.nav-links a:not(.btn-signup)::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transition: width 0.25s ease-in-out;
+}
+
+.nav-links a:not(.btn-signup):hover::after {
+  width: 100%;
 }
 
 /* Layout Wrapper Layouts */
@@ -466,6 +519,367 @@ button[type="submit"]:disabled {
   color: #cbd5e1;
 }
 
+/* ==========================================================================
+   SIMPO HUB FUTURISTIC SAAS STYLESHEET
+   Theme: Galactic Dark, Electric Blue Accents, Ultra-Clean Layouts
+   ========================================================================== */
+
+:root {
+  --bg-dark: #070a13;
+  --bg-card: rgba(16, 23, 42, 0.65);
+  --border-glow: rgba(0, 102, 255, 0.15);
+  --border-hover: rgba(0, 102, 255, 0.4);
+  --accent-blue: #0066ff;
+  --accent-glow: #3385ff;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --success-green: #10b981;
+  --error-red: #ef4444;
+}
+
+/* Global resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(0, 102, 255, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 102, 255, 0.05) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  padding-bottom: 60px;
+}
+
+/* WhatsApp floating pane*/
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366; /* Official WhatsApp Color */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Keeps it above all website content */
+  transition:
+    transform 0.2s ease-in-out,
+    bottom 0.2s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.1); /* Slight grow effect when hovered */
+}
+
+/* ==========================================================================
+   HEADER NAVBAR & NAVIGATION LAYOUT
+   ========================================================================== */
+.navbar {
+  background: rgba(7, 10, 19, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glow);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-accent {
+  color: var(--accent-blue);
+  text-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+}
+
+.nav-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Global configuration for the inline vector blocks */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links .yt-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: inherit; /* Dynamically inherits text colors automatically */
+}
+
+/* Base setup for layout interaction alignment */
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
+
+/* Regular Link Hover Effect */
+.nav-links a:not(.btn-signup):hover {
+  color: var(--text-main);
+  text-shadow: 0 0 10px rgba(241, 245, 249, 0.4);
+}
+
+/* Futuristic Bottom-line Slide Animation */
+.nav-links a:not(.btn-signup)::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transition: width 0.25s ease-in-out;
+}
+
+.nav-links a:not(.btn-signup):hover::after {
+  width: 100%;
+}
+
+/* Premium Sign Up Button */
+.nav-links .btn-signup {
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--text-main);
+  border: 1px solid var(--accent-blue);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.1);
+}
+
+/* Premium Sign Up Button Hover */
+.nav-links .btn-signup:hover {
+  background: var(--accent-blue);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE & MAIN CORE WRAPPERS
+   ========================================================================== */
+.main-wrapper {
+  max-width: 1300px;
+  margin: 40px auto 0 auto;
+  padding: 0 24px;
+}
+
+/* Strategic SEO Hero Presentation Title Elements */
+.hero-section {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fff 30%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Main Dashboard Column Balancing Rules */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 4.5fr 7.5fr;
+  }
+}
+
+/* Translucent SaaS Component Panel Elements */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 28px;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(0, 102, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.04);
+}
+
+.card-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+}
+
+.card-icon {
+  font-size: 24px;
+  background: rgba(0, 102, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-lead {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   DYNAMIC RESOURCE COMPONENT RE-INJECTION (Targets items mapped by browse.js)
+   ========================================================================== */
+#resourceContainer {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.resource-item {
+  background: rgba(7, 10, 19, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 576px) {
+  .resource-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.resource-item:hover {
+  border-color: var(--border-hover);
+  background: rgba(0, 102, 255, 0.02);
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.category-badge {
+  background: rgba(0, 102, 255, 0.12);
+  color: #4da6ff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+.resource-desc {
+  font-size: 13.5px;
+  color: #cbd5e1;
+}
+
 /* Download Direct Button Layout UI Elements */
 .download-btn {
   background: rgba(255, 255, 255, 0.04) !important;
@@ -490,6 +904,163 @@ button[type="submit"]:disabled {
   box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
+/* ==========================================================================
+   INPUT FORMS, DROPDOWNS & ACTIONS
+   ========================================================================== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(7, 10, 19, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  background: rgba(7, 10, 19, 0.8);
+}
+
+/* Premium Upload Button State Elements */
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 24px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 102, 255, 0.03);
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.file-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.file-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Submit Action Button UI Details */
+button[type="submit"] {
+  width: 100%;
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.25);
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 102, 255, 0.35);
+}
+
+button[type="submit"]:disabled {
+  background: #1e293b;
+  color: #64748b;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* App System Status Indicators */
+.status {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-red);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Loading Placeholder Dynamic Visual States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Sticky App Footer Branding Layout rules */
 .app-footer {
   text-align: center;
@@ -498,4 +1069,131 @@ button[type="submit"]:disabled {
   color: var(--text-muted);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   margin-top: 80px;
+}
+
+/* ==========================================================================
+   MOBILE VIEWPORT MATRIX (YOUTUBE MODE HANDLER)
+   ========================================================================== */
+/* ==========================================================================
+   MOBILE VIEWPORT MATRIX (YOUTUBE DECOUPLED MODE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Add top padding to the body so content doesn't get buried under the pinned logo */
+  body {
+    padding-top: 70px;
+    padding-bottom: 80px; /* Keeps your padding-bottom protected for the lower bar */
+  }
+
+  /* 2. Turn the base navbar wrapper into the pinned TOP LOGO BAR */
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important; /* Cancels out any previous bottom assignments */
+    left: 0;
+    width: 100%;
+    padding: 14px 20px;
+    border-top: none;
+    border-bottom: 1px solid var(--border-glow); /* Glowing line stays underneath the logo */
+    box-shadow: 0 4px 24px rgba(7, 10, 19, 0.6);
+    background: rgba(7, 10, 19, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 999;
+  }
+
+  /* Force the container to display the logo and center it safely */
+  .nav-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* Ensure the Logo remains visible, centered, and premium on the top line */
+  .navbar .logo {
+    display: flex !important;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  /* Hide the region badge on small gadgets as before */
+  .nav-badge {
+    display: none;
+  }
+
+  /* 3. Transform the links container into its own independent BOTTOM BAR */
+  .nav-links {
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0 10px;
+    border-top: 1px solid var(--border-glow); /* Glowing baseline sits directly above links */
+    background: rgba(
+      7,
+      10,
+      19,
+      0.96
+    ); /* Higher dark contrast backdrop for legibility */
+    box-shadow: 0 -8px 32px rgba(7, 10, 19, 0.85);
+    z-index: 1000; /* Stays slightly higher than other background properties */
+  }
+
+  /* Make sure link objects arrange vertically down inside the tray */
+  .nav-links a {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 4px 0;
+    flex: 1;
+    color: var(--text-muted);
+  }
+
+  /* Layout vector icon adjustments inside the bottom panel matrix */
+  .nav-links .yt-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+
+  /* Hide text completely for the clean icon-only navigation appearance */
+  .nav-links .nav-text {
+    display: none;
+  }
+
+  /* Active visual trigger marker setup */
+  .nav-links a.active {
+    color: var(--accent-glow) !important;
+  }
+
+  /* Standard button layout flattening on mobile viewports */
+  .nav-links .btn-signup {
+    background: transparent;
+    border: none;
+    padding: 4px 0;
+    box-shadow: none;
+  }
+
+  .nav-links .btn-signup:hover {
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Remove sliding text underlines inside the lower app pane */
+  .nav-links a:not(.btn-signup)::after {
+    display: none;
+  }
+
+  /* Reposition your floating WhatsApp fab higher so it clears the bottom menu bar cleanly */
+  .whatsapp-fab {
+    bottom: 84px;
+  }
 }
