@@ -63,28 +63,72 @@ body {
   transform: scale(1.1); /* Slight grow effect when hovered */
 }
 
-/* Header Navbar Branding Styles */
+/* ==========================================================================
+   DESKTOP DEFAULT INTERFACE RULES (EXPANDED SIDEBAR PANELS)
+   ========================================================================== */
+body {
+  padding-top: 84px; /* Clears full height of the fixed top panel header */
+  padding-left: 270px; /* Clears default expanded navigation width */
+  padding-right: 24px;
+  transition: padding-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Minimalist YouTube Desktop Hamburger Button Framework */
+.hamburger-menu {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.hamburger-menu:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hamburger-menu .yt-icon {
+  width: 22px;
+  height: 22px;
+  margin: 0 !important;
+}
+
+/* Fixed Top Navbar: Forced flush with screen boundaries */
 .navbar {
-  background: rgba(7, 10, 19, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(7, 10, 19, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glow);
   padding: 16px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: 1000;
 }
 
 .nav-container {
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: 100% !important; /* Spans across entire layout width edges */
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 22px;
+.navbar .logo {
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.5px;
   display: flex;
@@ -92,78 +136,120 @@ body {
   gap: 8px;
 }
 
-.logo-accent {
-  color: var(--accent-blue);
-  text-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+.header-actions {
+  display: none;
 }
 
-.nav-badge {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-/* Navigation Links Container */
-/* ==========================================
-   DESKTOP DEFAULT INTERFACE RULES
-   ========================================== */
-
-/* Navigation Links Grid/Flex Layout for Desktop */
+/* Fixed Navigation Sidebar Defaults */
 .nav-links {
+  position: fixed !important;
+  top: 76px; /* Sits precisely below bottom layout edge of top navbar */
+  left: 0 !important;
+  width: 245px;
+  height: calc(100vh - 76px);
   display: flex;
-  align-items: center;
-  /* Creates generous breathing space between each distinct menu item */
-  gap: 28px;
-  /* Allows the menu system to scale elegantly into its provided section */
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 12px;
+  background: rgba(7, 10, 19, 0.4);
+  border-right: 1px solid var(--border-glow);
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  z-index: 999;
+  transition:
+    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.25s ease;
 }
 
-/* Base link architecture adjustment */
 .nav-links a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   color: var(--text-muted);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.3px;
-  padding: 6px 4px;
-  position: relative;
-  transition:
-    color 0.25s ease-in-out,
-    text-shadow 0.25s ease-in-out;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
-/* Precise alignment for the minimalist vector icon shapes */
 .nav-links .yt-icon {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  vertical-align: middle;
-  /* Adds space between the icon and its text companion so they don't mash */
-  margin-right: 8px;
-  flex-shrink: 0; /* Prevents the vector block from collapsing */
+  width: 20px;
+  height: 20px;
+  margin-right: 24px;
+  flex-shrink: 0;
   color: inherit;
+  transition: margin 0.25s ease;
 }
 
-/* Re-adjust position calculation for the futuristic bottom-line expander */
-.nav-links a:not(.btn-signup)::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
+.nav-links .nav-text {
+  opacity: 1;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:not(.btn-signup):hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-links a.active {
+  background: rgba(0, 102, 255, 0.12) !important;
+  color: var(--accent-glow) !important;
+  font-weight: 600;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+.nav-links .btn-signup {
   background: var(--accent-blue);
-  box-shadow: 0 0 8px var(--accent-glow);
-  transition: width 0.25s ease-in-out;
+  color: #ffffff;
+  font-weight: 600;
+  justify-content: center;
+  margin-top: auto; /* CTA stays neatly docked at bottom of navigation links list */
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
 
-.nav-links a:not(.btn-signup):hover::after {
+.nav-links .btn-signup:hover {
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   DYNAMIC COLLAPSED PC MODIFIER STATE (VIA JAVASCRIPT)
+   ========================================================================== */
+body.sidebar-collapsed {
+  padding-left: 96px;
+}
+
+body.sidebar-collapsed .nav-links {
+  width: 76px;
+  padding: 16px 8px;
+  align-items: center;
+}
+
+body.sidebar-collapsed .nav-links a {
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 0;
   width: 100%;
+}
+
+body.sidebar-collapsed .nav-links .yt-icon {
+  margin-right: 0;
+}
+
+body.sidebar-collapsed .nav-links .nav-text {
+  display: none;
+  opacity: 0;
+}
+
+body.sidebar-collapsed .nav-links .btn-signup {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid var(--accent-blue);
+  box-shadow: none;
+  color: var(--text-muted);
 }
 
 /* Layout Wrapper Layouts */
@@ -1072,128 +1158,126 @@ button[type="submit"]:disabled {
 }
 
 /* ==========================================================================
-   MOBILE VIEWPORT MATRIX (YOUTUBE MODE HANDLER)
-   ========================================================================== */
-/* ==========================================================================
-   MOBILE VIEWPORT MATRIX (YOUTUBE DECOUPLED MODE)
+   MOBILE DEVICE VIEWPORT TRANSLATION MATRIX (YOUTUBE MODE RESTORED)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Add top padding to the body so content doesn't get buried under the pinned logo */
-  body {
-    padding-top: 70px;
-    padding-bottom: 80px; /* Keeps your padding-bottom protected for the lower bar */
+  /* Force precise bumper offsets over document bodies */
+  body,
+  body.sidebar-collapsed {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 68px !important;
+    padding-bottom: 76px !important;
   }
 
-  /* 2. Turn the base navbar wrapper into the pinned TOP LOGO BAR */
+  /* Completely mask hamburger buttons from smartphone panels */
+  .hamburger-menu {
+    display: none !important;
+  }
+
   .navbar {
-    position: fixed !important;
-    top: 0 !important;
-    bottom: auto !important; /* Cancels out any previous bottom assignments */
-    left: 0;
-    width: 100%;
-    padding: 14px 20px;
-    border-top: none;
-    border-bottom: 1px solid var(--border-glow); /* Glowing line stays underneath the logo */
-    box-shadow: 0 4px 24px rgba(7, 10, 19, 0.6);
-    background: rgba(7, 10, 19, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 999;
+    padding: 12px 16px !important;
+    background: rgba(7, 10, 19, 0.95) !important;
   }
 
-  /* Force the container to display the logo and center it safely */
   .nav-container {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100%;
+    justify-content: space-between !important;
   }
 
-  /* Ensure the Logo remains visible, centered, and premium on the top line */
   .navbar .logo {
     display: flex !important;
-    font-size: 20px;
-    letter-spacing: -0.5px;
+    font-size: 19px !important;
   }
 
-  /* Hide the region badge on small gadgets as before */
-  .nav-badge {
-    display: none;
-  }
-
-  /* 3. Transform the links container into its own independent BOTTOM BAR */
-  .nav-links {
-    position: fixed !important;
-    bottom: 0 !important;
-    top: auto !important;
-    left: 0;
-    width: 100%;
-    height: 64px;
+  .header-actions {
     display: flex !important;
-    justify-content: space-around !important;
     align-items: center;
-    gap: 0;
-    margin: 0;
-    padding: 0 10px;
-    border-top: 1px solid var(--border-glow); /* Glowing baseline sits directly above links */
-    background: rgba(
-      7,
-      10,
-      19,
-      0.96
-    ); /* Higher dark contrast backdrop for legibility */
-    box-shadow: 0 -8px 32px rgba(7, 10, 19, 0.85);
-    z-index: 1000; /* Stays slightly higher than other background properties */
+    color: var(--text-main);
   }
 
-  /* Make sure link objects arrange vertically down inside the tray */
-  .nav-links a {
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 4px 0;
-    flex: 1;
-    color: var(--text-muted);
+  .header-actions .action-trigger {
+    width: 22px;
+    height: 22px;
+    opacity: 0.85;
   }
 
-  /* Layout vector icon adjustments inside the bottom panel matrix */
-  .nav-links .yt-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 0;
-    margin-bottom: 2px;
+  .nav-badge {
+    display: none !important;
   }
 
-  /* Hide text completely for the clean icon-only navigation appearance */
-  .nav-links .nav-text {
-    display: none;
+  /* RESTORED: Horizontal compact bottom application navigation strip */
+  .nav-links,
+  body.sidebar-collapsed .nav-links {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 58px !important;
+    flex-direction: row !important; /* Forces side-by-side distribution grid layout */
+    padding: 0 6px !important;
+    background: rgba(7, 10, 19, 0.98) !important;
+    border-right: none !important;
+    border-top: 1px solid var(--border-glow) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    overflow-y: hidden !important;
+    gap: 0 !important;
+    align-items: center !important;
   }
 
-  /* Active visual trigger marker setup */
-  .nav-links a.active {
-    color: var(--accent-glow) !important;
+  /* Reset vertical structure parameters inside active link frames */
+  .nav-links a,
+  body.sidebar-collapsed .nav-links a {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex: 1 !important;
+    height: 100% !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
   }
 
-  /* Standard button layout flattening on mobile viewports */
-  .nav-links .btn-signup {
-    background: transparent;
-    border: none;
-    padding: 4px 0;
-    box-shadow: none;
+  .nav-links .yt-icon,
+  body.sidebar-collapsed .nav-links .yt-icon {
+    width: 23px !important;
+    height: 23px !important;
+    margin-right: 0 !important;
+    margin-bottom: 2px !important;
   }
 
-  .nav-links .btn-signup:hover {
-    background: transparent;
-    transform: none;
-    box-shadow: none;
+  .nav-links .nav-text,
+  body.sidebar-collapsed .nav-links .nav-text {
+    display: none !important;
   }
 
-  /* Remove sliding text underlines inside the lower app pane */
-  .nav-links a:not(.btn-signup)::after {
-    display: none;
+  .nav-links a.active,
+  body.sidebar-collapsed .nav-links a.active {
+    color: var(--text-main) !important;
+    background: transparent !important;
+    border: none !important;
+    text-shadow: none !important;
   }
 
-  /* Reposition your floating WhatsApp fab higher so it clears the bottom menu bar cleanly */
+  /* Standard CTA alignment neutralization for mobile row arrays */
+  .nav-links .btn-signup,
+  body.sidebar-collapsed .nav-links .btn-signup {
+    margin-top: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-muted) !important;
+  }
+
+  .nav-links .btn-signup:hover,
+  body.sidebar-collapsed .nav-links .btn-signup:hover {
+    transform: none !important;
+  }
+
   .whatsapp-fab {
-    bottom: 84px;
+    bottom: 76px !important;
   }
 }

@@ -33,99 +33,126 @@
   </script>
 
   <body>
-    <!-- Futuristic SaaS Navigation Header Element -->
+    <!-- TOP VIEWPORT HEADER -->
+    <!-- TOP VIEWPORT HEADER (Clamps flawlessly to screen edges) -->
     <header class="navbar">
       <div class="nav-container">
-        <div class="logo">
-          <span class="logo-icon">⚡</span> Simpo<span class="logo-accent"
-            >Hub</span
+        <div class="brand-wrapper">
+          <!-- Hamburger collapses on PC, vanishes completely on phone viewports -->
+          <button
+            class="hamburger-menu"
+            id="sidebarToggle"
+            aria-label="Toggle Navigation"
           >
+            <svg
+              class="yt-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+          </button>
+          <div class="logo">
+            <span class="logo-icon">⚡</span> Simpo<span class="logo-accent"
+              >Hub</span
+            >
+          </div>
         </div>
 
-        <nav class="nav-links">
-          <!-- 1. HOME LINK -->
-          <a href="index.html" class="active">
-            <svg class="yt-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </svg>
-            <span class="nav-text">Home</span>
-          </a>
-
-          <!-- 2. UPLOAD LINK -->
-          <a href="#">
-            <svg
-              class="yt-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
-              />
-            </svg>
-            <span class="nav-text">Upload</span>
-          </a>
-
-          <!-- 3. ABOUT LINK -->
-          <a href="#">
-            <svg
-              class="yt-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <span class="nav-text">About</span>
-          </a>
-
-          <!-- 4. PRIVACY POLICY LINK -->
-          <a href="#">
-            <svg
-              class="yt-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            <span class="nav-text">Privacy</span>
-          </a>
-
-          <!-- 5. SIGN UP ACTION BUTTON -->
-          <a href="#" class="btn-signup">
-            <svg
-              class="yt-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
-              <line x1="20" y1="8" x2="20" y2="14"></line>
-              <line x1="23" y1="11" x2="17" y2="11"></line>
-            </svg>
-            <span class="nav-text">Sign Up</span>
-          </a>
-        </nav>
+        <div class="header-actions">
+          <svg
+            class="yt-icon action-trigger"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
 
         <div class="nav-badge">🇺🇬 Uganda's Academic Decentralized Library</div>
       </div>
     </header>
+
+    <!-- NAVIGATION INTERFACE COMPONENT -->
+    <nav class="nav-links" id="sidebarMenu">
+      <a href="index.html" class="active">
+        <svg class="yt-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+        <span class="nav-text">Home</span>
+      </a>
+      <a href="upload.html">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
+          />
+        </svg>
+        <span class="nav-text">Upload</span>
+      </a>
+      <a href="about.html">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span class="nav-text">About</span>
+      </a>
+      <a href="privacy-policy.html">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span class="nav-text">Privacy</span>
+      </a>
+      <a href="sign-up.html" class="btn-signup">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+        <span class="nav-text">Sign Up</span>
+      </a>
+    </nav>
 
     <main class="main-wrapper">
       <!-- Hero Introduction Section with Strategic Local SEO Keywords -->
@@ -320,5 +347,12 @@
         />
       </svg>
     </a>
+    <script>
+      document
+        .getElementById("sidebarToggle")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("sidebar-collapsed");
+        });
+    </script>
   </body>
 </html>
