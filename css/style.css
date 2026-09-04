@@ -2,16 +2,16 @@
    1. VARIABLES & FOUNDATIONAL RESETS
       ========================================================================== */
 :root {
-  --bg-dark: #070a13;
-  --bg-card: rgba(16, 23, 42, 0.65);
-  --border-glow: rgba(0, 102, 255, 0.15);
-  --border-hover: rgba(0, 102, 255, 0.4);
-  --accent-blue: #0066ff;
-  --accent-glow: #3385ff;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --success-green: #10b981;
-  --error-red: #ef4444;
+  --bg-dark: #f8fafc;         /* Clean slate-white background */
+  --bg-card: #ffffff;         /* Pure white for elevated floating cards */
+  --border-glow: #e2e8f0;     /* Soft grey dividing lines/borders */
+  --border-hover: #cbd5e1;    /* Slightly darker slate border on card hover */
+  --accent-blue: #0066ff;     /* Vivid electric blue for primary focus links/buttons */
+  --accent-glow: #0052cc;     /* Richer, deeper blue for interactive hover states */
+  --text-main: #0f172a;       /* Deep slate-charcoal for crisp text readability */
+  --text-muted: #64748b;      /* Balanced cool-grey for captions and subtexts */
+  --success-green: #10b981;   /* Main system green state */
+  --error-red: #ef4444;       /* Main system red state */
 }
 
 * {
