@@ -1,8 +1,3 @@
-/* ==========================================================================
-   SIMPO HUB FUTURISTIC SAAS STYLESHEET
-   Theme: Galactic Dark, Electric Blue Accents, Ultra-Clean Layouts
-   ========================================================================== */
-
 :root {
   --bg-dark: #070a13;
   --bg-card: rgba(16, 23, 42, 0.65);
@@ -47,28 +42,93 @@ body {
   padding-bottom: 60px;
 }
 
-/* Header Navbar Branding Styles */
+/* WhatsApp floating pane*/
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366; /* Official WhatsApp Color */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Keeps it above all website content */
+  transition: transform 0.2s ease-in-out;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.1); /* Slight grow effect when hovered */
+}
+
+/* ==========================================================================
+   DESKTOP DEFAULT INTERFACE RULES (EXPANDED SIDEBAR PANELS)
+   ========================================================================== */
+body {
+  padding-top: 84px; /* Clears full height of the fixed top panel header */
+  padding-left: 270px; /* Clears default expanded navigation width */
+  padding-right: 24px;
+  transition: padding-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Minimalist YouTube Desktop Hamburger Button Framework */
+.hamburger-menu {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.hamburger-menu:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hamburger-menu .yt-icon {
+  width: 22px;
+  height: 22px;
+  margin: 0 !important;
+}
+
+/* Fixed Top Navbar: Forced flush with screen boundaries */
 .navbar {
-  background: rgba(7, 10, 19, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(7, 10, 19, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glow);
   padding: 16px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: 1000;
 }
 
 .nav-container {
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: 100% !important; /* Spans across entire layout width edges */
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 22px;
+.navbar .logo {
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.5px;
   display: flex;
@@ -76,18 +136,119 @@ body {
   gap: 8px;
 }
 
-.logo-accent {
-  color: var(--accent-blue);
-  text-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+.header-actions {
+  display: none;
 }
 
-.nav-badge {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
+/* Fixed Navigation Sidebar Defaults */
+.nav-links {
+  position: fixed !important;
+  top: 76px; /* Sits precisely below bottom layout edge of top navbar */
+  left: 0 !important;
+  width: 245px;
+  height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 12px;
+  background: rgba(7, 10, 19, 0.4);
+  border-right: 1px solid var(--border-glow);
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  z-index: 999;
+  transition:
+    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.25s ease;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.nav-links .yt-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 24px;
+  flex-shrink: 0;
+  color: inherit;
+  transition: margin 0.25s ease;
+}
+
+.nav-links .nav-text {
+  opacity: 1;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:not(.btn-signup):hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-links a.active {
+  background: rgba(0, 102, 255, 0.12) !important;
+  color: var(--accent-glow) !important;
   font-weight: 600;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+.nav-links .btn-signup {
+  background: var(--accent-blue);
+  color: #ffffff;
+  font-weight: 600;
+  justify-content: center;
+  margin-top: auto; /* CTA stays neatly docked at bottom of navigation links list */
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
+}
+
+.nav-links .btn-signup:hover {
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   DYNAMIC COLLAPSED PC MODIFIER STATE (VIA JAVASCRIPT)
+   ========================================================================== */
+body.sidebar-collapsed {
+  padding-left: 96px;
+}
+
+body.sidebar-collapsed .nav-links {
+  width: 76px;
+  padding: 16px 8px;
+  align-items: center;
+}
+
+body.sidebar-collapsed .nav-links a {
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 0;
+  width: 100%;
+}
+
+body.sidebar-collapsed .nav-links .yt-icon {
+  margin-right: 0;
+}
+
+body.sidebar-collapsed .nav-links .nav-text {
+  display: none;
+  opacity: 0;
+}
+
+body.sidebar-collapsed .nav-links .btn-signup {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid var(--accent-blue);
+  box-shadow: none;
   color: var(--text-muted);
 }
 
@@ -444,6 +605,367 @@ button[type="submit"]:disabled {
   color: #cbd5e1;
 }
 
+/* ==========================================================================
+   SIMPO HUB FUTURISTIC SAAS STYLESHEET
+   Theme: Galactic Dark, Electric Blue Accents, Ultra-Clean Layouts
+   ========================================================================== */
+
+:root {
+  --bg-dark: #070a13;
+  --bg-card: rgba(16, 23, 42, 0.65);
+  --border-glow: rgba(0, 102, 255, 0.15);
+  --border-hover: rgba(0, 102, 255, 0.4);
+  --accent-blue: #0066ff;
+  --accent-glow: #3385ff;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --success-green: #10b981;
+  --error-red: #ef4444;
+}
+
+/* Global resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(0, 102, 255, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 102, 255, 0.05) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  padding-bottom: 60px;
+}
+
+/* WhatsApp floating pane*/
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366; /* Official WhatsApp Color */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Keeps it above all website content */
+  transition:
+    transform 0.2s ease-in-out,
+    bottom 0.2s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.1); /* Slight grow effect when hovered */
+}
+
+/* ==========================================================================
+   HEADER NAVBAR & NAVIGATION LAYOUT
+   ========================================================================== */
+.navbar {
+  background: rgba(7, 10, 19, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glow);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-accent {
+  color: var(--accent-blue);
+  text-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+}
+
+.nav-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Global configuration for the inline vector blocks */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links .yt-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: inherit; /* Dynamically inherits text colors automatically */
+}
+
+/* Base setup for layout interaction alignment */
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
+
+/* Regular Link Hover Effect */
+.nav-links a:not(.btn-signup):hover {
+  color: var(--text-main);
+  text-shadow: 0 0 10px rgba(241, 245, 249, 0.4);
+}
+
+/* Futuristic Bottom-line Slide Animation */
+.nav-links a:not(.btn-signup)::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transition: width 0.25s ease-in-out;
+}
+
+.nav-links a:not(.btn-signup):hover::after {
+  width: 100%;
+}
+
+/* Premium Sign Up Button */
+.nav-links .btn-signup {
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--text-main);
+  border: 1px solid var(--accent-blue);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.1);
+}
+
+/* Premium Sign Up Button Hover */
+.nav-links .btn-signup:hover {
+  background: var(--accent-blue);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE & MAIN CORE WRAPPERS
+   ========================================================================== */
+.main-wrapper {
+  max-width: 1300px;
+  margin: 40px auto 0 auto;
+  padding: 0 24px;
+}
+
+/* Strategic SEO Hero Presentation Title Elements */
+.hero-section {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fff 30%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Main Dashboard Column Balancing Rules */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 4.5fr 7.5fr;
+  }
+}
+
+/* Translucent SaaS Component Panel Elements */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 28px;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(0, 102, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.04);
+}
+
+.card-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+}
+
+.card-icon {
+  font-size: 24px;
+  background: rgba(0, 102, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-lead {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   DYNAMIC RESOURCE COMPONENT RE-INJECTION (Targets items mapped by browse.js)
+   ========================================================================== */
+#resourceContainer {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.resource-item {
+  background: rgba(7, 10, 19, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 576px) {
+  .resource-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.resource-item:hover {
+  border-color: var(--border-hover);
+  background: rgba(0, 102, 255, 0.02);
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.category-badge {
+  background: rgba(0, 102, 255, 0.12);
+  color: #4da6ff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+.resource-desc {
+  font-size: 13.5px;
+  color: #cbd5e1;
+}
+
 /* Download Direct Button Layout UI Elements */
 .download-btn {
   background: rgba(255, 255, 255, 0.04) !important;
@@ -468,6 +990,163 @@ button[type="submit"]:disabled {
   box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
+/* ==========================================================================
+   INPUT FORMS, DROPDOWNS & ACTIONS
+   ========================================================================== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(7, 10, 19, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  background: rgba(7, 10, 19, 0.8);
+}
+
+/* Premium Upload Button State Elements */
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 24px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 102, 255, 0.03);
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.file-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.file-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Submit Action Button UI Details */
+button[type="submit"] {
+  width: 100%;
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.25);
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 102, 255, 0.35);
+}
+
+button[type="submit"]:disabled {
+  background: #1e293b;
+  color: #64748b;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* App System Status Indicators */
+.status {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-red);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Loading Placeholder Dynamic Visual States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Sticky App Footer Branding Layout rules */
 .app-footer {
   text-align: center;
@@ -476,4 +1155,129 @@ button[type="submit"]:disabled {
   color: var(--text-muted);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   margin-top: 80px;
+}
+
+/* ==========================================================================
+   MOBILE DEVICE VIEWPORT TRANSLATION MATRIX (YOUTUBE MODE RESTORED)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Force precise bumper offsets over document bodies */
+  body,
+  body.sidebar-collapsed {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 68px !important;
+    padding-bottom: 76px !important;
+  }
+
+  /* Completely mask hamburger buttons from smartphone panels */
+  .hamburger-menu {
+    display: none !important;
+  }
+
+  .navbar {
+    padding: 12px 16px !important;
+    background: rgba(7, 10, 19, 0.95) !important;
+  }
+
+  .nav-container {
+    justify-content: space-between !important;
+  }
+
+  .navbar .logo {
+    display: flex !important;
+    font-size: 19px !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+    align-items: center;
+    color: var(--text-main);
+  }
+
+  .header-actions .action-trigger {
+    width: 22px;
+    height: 22px;
+    opacity: 0.85;
+  }
+
+  .nav-badge {
+    display: none !important;
+  }
+
+  /* RESTORED: Horizontal compact bottom application navigation strip */
+  .nav-links,
+  body.sidebar-collapsed .nav-links {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 58px !important;
+    flex-direction: row !important; /* Forces side-by-side distribution grid layout */
+    padding: 0 6px !important;
+    background: rgba(7, 10, 19, 0.98) !important;
+    border-right: none !important;
+    border-top: 1px solid var(--border-glow) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    overflow-y: hidden !important;
+    gap: 0 !important;
+    align-items: center !important;
+  }
+
+  /* Reset vertical structure parameters inside active link frames */
+  .nav-links a,
+  body.sidebar-collapsed .nav-links a {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex: 1 !important;
+    height: 100% !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .nav-links .yt-icon,
+  body.sidebar-collapsed .nav-links .yt-icon {
+    width: 23px !important;
+    height: 23px !important;
+    margin-right: 0 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .nav-links .nav-text,
+  body.sidebar-collapsed .nav-links .nav-text {
+    display: none !important;
+  }
+
+  .nav-links a.active,
+  body.sidebar-collapsed .nav-links a.active {
+    color: var(--text-main) !important;
+    background: transparent !important;
+    border: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Standard CTA alignment neutralization for mobile row arrays */
+  .nav-links .btn-signup,
+  body.sidebar-collapsed .nav-links .btn-signup {
+    margin-top: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-muted) !important;
+  }
+
+  .nav-links .btn-signup:hover,
+  body.sidebar-collapsed .nav-links .btn-signup:hover {
+    transform: none !important;
+  }
+
+  .whatsapp-fab {
+    bottom: 76px !important;
+  }
 }

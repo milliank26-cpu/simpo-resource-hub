@@ -1,0 +1,607 @@
+/* --- ABOUT PAGE STEALTH STYLES --- */
+:root {
+    --primary-blue: #0047AB;
+    --secondary-black: #050505;
+    --accent-gold: #FFB800;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text-dim: #888888;
+    --blue-glow: rgba(0, 71, 171, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--secondary-black);
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================================
+   GLOBAL SECTION SPACING (THE FIX)
+   ========================================= */
+section {
+    padding: clamp(60px, 10vw, 100px) 5%;
+    /* Responsive vertical spacing */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header & Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--glass-border);
+    max-width: 100%;
+    overflow: visible !important;
+    /* Allow the menu to slide out */
+
+}
+
+.topnav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: visible !important;
+    /* Allow the menu to slide out */
+
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: white;
+    text-shadow: 0 0 10px var(--blue-glow);
+}
+
+/* --- The SignUp/Login Conversion Styling --- */
+.nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    border-left: 1px solid var(--glass-border);
+    padding-left: 30px;
+}
+
+.btn-login {
+    color: white !important;
+}
+
+.btn-register {
+    background: var(--primary-blue);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 0 15px var(--blue-glow);
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px var(--blue-glow);
+}
+
+/* --- Desktop Nav (Default) --- */
+header,
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    overflow: visible !important;
+    /* This allows the menu to "float" outside the header line */
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background: var(--secondary-black);
+    border-bottom: 1px solid var(--glass-border);
+
+}
+
+/* Ensure the logo doesn't crush the menu on tiny screens */
+.logo img,
+.logo-link {
+    max-width: 120px;
+    height: auto;
+}
+
+.menu-toggle {
+    display: none;
+    /* Hidden on Desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: radial-gradient(circle at top left, rgba(0, 71, 171, 0.15) 0%, transparent 50%);
+}
+
+h1.hero span {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    background: linear-gradient(to right, #fff, var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary.btn {
+    background: var(--primary-blue);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-blue);
+}
+
+.secondary.btn {
+    border: 1px solid var(--glass-border);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+/* Mission & Vision */
+.mission,
+.vision {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.vision {
+    flex-direction: row-reverse;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+h2 {
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.mission-text p,
+.vision-text p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* =========================================
+   ECOSYSTEM SECTION (FURNISHED)
+   ========================================= */
+.ecosystem-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+    perspective: 1000px;
+}
+
+.pillar-card {
+    flex: 1;
+    position: relative;
+    padding: 40px !important;
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(145deg, rgba(15, 15, 15, 0.9), rgba(5, 5, 5, 1));
+    border-radius: 24px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.pillar-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-10px);
+}
+
+.pillar-tagline {
+    color: var(--accent-gold);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.pillar-features {
+    list-style: none;
+    margin-top: 25px;
+    padding: 0;
+}
+
+.pillar-features li {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.pillar-features li::before {
+    content: "✓";
+    color: var(--primary-blue);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Glow Effects */
+.pillar-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    filter: blur(60px);
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.pillar-glow.blue {
+    background: var(--primary-blue);
+}
+
+.pillar-glow.gold {
+    background: var(--accent-gold);
+}
+
+/* Feature Cards */
+.features {
+    text-align: center;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 71, 171, 0.2);
+}
+
+/* Why Us Section */
+.why-us {
+    text-align: center;
+    background: #080808;
+}
+
+.value-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.value-card {
+    width: 300px;
+    border-left: 3px solid var(--accent-gold);
+    background: rgba(255, 184, 0, 0.02);
+    padding: 25px;
+    text-align: left;
+    border-radius: 0 12px 12px 0;
+}
+
+.value-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   FINAL CTA SECTION
+   ========================================= */
+.cta {
+    background-color: #080808;
+    background-image: radial-gradient(circle at center, rgba(0, 71, 171, 0.1) 0%, transparent 70%);
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 15px;
+    background: linear-gradient(to bottom, #ffffff 30%, #bbbbbb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    box-shadow: 0 0 20px var(--blue-glow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 40px var(--blue-glow);
+    background-color: #0056D2;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    border-top: 1px solid var(--glass-border);
+    padding: 80px 5% 40px;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.f {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.2s;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.f:hover {
+    color: white;
+}
+
+.titles {
+    color: white;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.copy {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 30px;
+    color: #555;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (ULTRA)
+   ========================================= */
+@media (max-width: 950px) {
+
+    /* 1. Toggle Button - Ensure it's on top of everything */
+    .menu-toggle {
+        display: flex !important;
+        position: relative;
+        z-index: 10002;
+    }
+
+    /* 2. Floating Glass Menu */
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        /* Gap from the top header */
+        right: -110%;
+        /* Hidden state */
+        width: 280px;
+        /* Small, focused width instead of full screen */
+        height: auto;
+        /* Shrink to fit content */
+        max-height: 80vh;
+        background: rgba(15, 15, 15, 0.8) !important;
+        /* Dark Glass */
+        backdrop-filter: blur(25px) saturate(150%);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        /* Rounded floating edges */
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 40px 30px;
+        gap: 20px;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 10001;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px var(--blue-glow);
+    }
+
+    /* 3. The Active State - Slide and Glow */
+    .nav-menu.active {
+        right: 20px !important;
+        /* Floats 20px from the right edge */
+    }
+
+    /* 4. Menu Links Styling */
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 1.1rem;
+        color: white;
+        display: block;
+        width: 100%;
+    }
+
+    /* 5. Buttons inside the Floating Menu */
+    .nav-cta {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 20px 0 0 0;
+        border-left: none;
+        gap: 15px;
+    }
+
+    .btn-register,
+    .btn-login {
+        width: 100% !important;
+        text-align: center;
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 1. FIXED: Removed display:none from .topnav */
+    .topnav {
+        display: flex;
+        /* Keep it alive */
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    /* 2. FURNISHED: The Floating Glass Menu */
+    .nav-menu {
+        position: fixed;
+        top: 85px;
+        /* Sits just below the header */
+        right: -110%;
+        /* Hidden state */
+        width: 280px;
+        /* Focused SaaS width */
+        background: rgba(10, 10, 10, 0.85) !important;
+        /* Deep Dark Glass */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 35px 25px;
+        gap: 25px;
+        z-index: 10001;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 15px var(--blue-glow);
+    }
+
+    /* 3. SHOW STATE: When clicked */
+    .nav-menu.active {
+        right: 20px !important;
+        /* Floats into view */
+    }
+
+    /* 4. Ensure links are visible on dark glass */
+    .nav-menu a {
+        color: white !important;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+    }
+
+    /* 5. Stack the buttons inside the floating card */
+    .nav-cta {
+        flex-direction: column;
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn-register,
+    .btn-login {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    /* --- REST OF YOUR RESPONSIVE STYLES --- */
+    section {
+        padding: 60px 5%;
+    }
+
+    .hero,
+    .mission,
+    .vision {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image,
+    .mission-image,
+    .vision-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .cta-btn {
+        width: 100%;
+        padding: 18px 0;
+    }
+}

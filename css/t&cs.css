@@ -1,0 +1,90 @@
+/* --- Terms & Conditions Layout --- */
+.terms-section {
+    padding: 60px 10%;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+}
+
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Header Styling */
+.terms-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--ug-yellow);
+    padding-bottom: 20px;
+}
+
+.terms-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.last-updated {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Content Styling */
+.terms-content h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--accent);
+    padding-left: 15px;
+}
+
+.terms-content p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.terms-content ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.terms-content li {
+    margin-bottom: 10px;
+}
+
+/* Important Highlight Box */
+.highlight-box {
+    background: #fff9e6; /* Light yellow tint */
+    border: 1px dashed var(--accent);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+/* Back to Home Button */
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-section { padding: 40px 5%; }
+    .terms-container { padding: 20px; }
+    .terms-header h1 { font-size: 1.8rem; }
+}
