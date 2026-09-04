@@ -30,21 +30,24 @@ body {
     sans-serif;
   line-height: 1.5;
   background-image:
-    radial-gradient(circle at 10% 20%,
-      rgba(0, 102, 255, 0.08) 0%,
-      transparent 40%),
-    radial-gradient(circle at 90% 80%,
-      rgba(0, 102, 255, 0.05) 0%,
-      transparent 50%);
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(0, 102, 255, 0.04) 0%, /* Reduced opacity so it acts as a premium glass accent hint */
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 102, 255, 0.02) 0%,
+      transparent 50%
+    );
   background-attachment: fixed;
   padding-bottom: 60px;
   padding-top: 84px;
-  /* Clears full height of the fixed top panel header */
   padding-left: 270px;
-  /* Clears default expanded navigation width */
   padding-right: 24px;
   transition: padding-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 /* Dynamic Collapsed PC Modifier State (Via JavaScript) */
 body.sidebar-collapsed {
